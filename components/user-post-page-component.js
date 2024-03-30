@@ -1,7 +1,7 @@
 import { renderHeaderComponent } from "./header-component.js";
 import { posts } from "../index.js";
 import { initLikeListeners } from "./posts-page-component.js";
-import { format } from "date-fns";
+import { format, formatDistanceToNow } from "date-fns";
 
 const appEl = document.getElementById("app");
 
@@ -52,7 +52,13 @@ export function renderUserPage() {
                       : ${post.description}
                     </p>
                     <p class="post-date">
-                    ${post.createdAt}
+                    ${
+                      new Date().getTime() -
+                        new Date(post.createdAt).getTime() <
+                      86400000
+                        ? formatDistanceToNow(post.createdAt)
+                        : format(post.createdAt, "dd.MM.yy hh:mm")
+                    }
                     </p>
                   </li>
                   </ul>
