@@ -107,7 +107,7 @@
   color: #8a8a8a;
 }
 
-.post + .post {
+.post+.post {
   margin-top: 20px;
 }
 
@@ -146,16 +146,21 @@
 .form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
   width: 100%;
+  align-items: center;
 }
 
 .form-title {
+
   font-size: 28px;
   line-height: 35px;
   text-align: center;
 }
 
 .form-inputs {
+
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 10px;
